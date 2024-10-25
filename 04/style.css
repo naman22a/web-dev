@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 20px;
+}
+
+form {
+    display: flex;
+}
+
+form div {
+    display: flex;
+    margin: 0 20px;
+}
+
+button {
+    padding: 5px 20px;
+    border: none;
+    background-color: rgb(11, 185, 215);
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+table button {
+    background-color: blueviolet;
+}
+
+table {
+    margin-top: 20px;
+}
+
+table td {
+    padding: 5px;
+}
+
+label {
+    margin-right: 10px;
+}

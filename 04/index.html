@@ -5,116 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 200px;
-        }
-
-        h1 {
-            font-size: 70px;
-            margin-bottom: 20px;
-        }
-
-        form {
-            display: flex;
-        }
-
-        form input {
-            font-size: 30px;
-            outline: none;
-        }
-
-        button {
-            padding: 5px 20px;
-            border: none;
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        form>button {
-            background-color: rgb(40, 232, 40);
-            color: white;
-            font-weight: 500;
-        }
-
-        ul li {
-            margin: 10px 0;
-            font-size: 20px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        ul li button:nth-child(1) {
-            margin: 0 3px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Todo List</h1>
-    <form>
-        <input type="text">
-        <button>Add</button>
-    </form>
-    <ul></ul>
+    <div class="container">
+        <form>
+            <div>
+                <label for="name">Product Name</label>
+                <input type="text" name="name" autocomplete="off">
+            </div>
+            <div>
+                <label for="price">Product Price</label>
+                <input type="number" name="price" autocomplete="off">
+            </div>
+            <div>
+                <label for="qty">Product Quantity</label>
+                <input type="number" name="qty" autocomplete="off">
+            </div>
+            <button type="submit">Add</button>
+        </form>
+        <table border="2">
+            <thead>
+                <td>Product Name</td>
+                <td>Product Price</td>
+                <td>Product Quantity</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
 
-    <script>
-        const form = document.querySelector('form');
-        const input = document.querySelector('input')
-        const ul = document.querySelector('ul')
-
-        function addTodo(todoText) {
-
-            if (todoText === '') {
-                alert('Please enter a task!');
-                return;
-            }
-
-            const li = document.createElement('li')
-            li.innerText = `${todoText}`;
-
-            const removeButton = document.createElement('button')
-            removeButton.innerText = 'Remove'
-
-            const editButton = document.createElement('button');
-            editButton.innerText = 'Edit';
-
-            li.appendChild(removeButton)
-            li.appendChild(editButton)
-            ul.appendChild(li)
-
-            removeButton.addEventListener('click', (e) => {
-                e.stopPropagation();
-                ul.removeChild(li)
-            })
-
-            editButton.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const newText = prompt('Edit your task:', li.firstChild.textContent);
-                if (newText !== null && newText.trim() !== '') {
-                    li.firstChild.textContent = newText.trim();
-                }
-            });
-        }
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            addTodo(input.value);
-            input.value = ''
-        })
-
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
