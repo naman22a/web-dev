@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        code {
+            background-color: #eee;
+            margin: 3px;
+            padding: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to the JavaScript Playground!</h1>
+    <p>Explore various data types, keywords and operations</p>
+
+    <section>
+        <h2>Data Types</h2>
+        <p>Number: <code id="number"></code></p>
+        <p>String: <code id="string"></code></p>
+        <p>Boolean: <code id="boolean"></code></p>
+    </section>
+
+    <section>
+        <h2>Keywords</h2>
+        <pre>
+<code>let</code><code>const</code><code>if</code>
+        </pre>
+    </section>
+
+    <section>
+        <h2>Operations</h2>
+        <p>Numbers: <code>2</code> and <code>3</code></p>
+        <p>Addition: <code id="add"></code></p>
+        <p>Subtraction: <code id="sub"></code></p>
+        <p>Multiplication: <code id="mul"></code></p>
+        <p>Division: <code id="div"></code></p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
