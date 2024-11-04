@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Object Example - Car</title>
+    <style>
+        .car {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="car">
+        <h1>Car Object Example</h1>
+        <p id="carStatus">Car is off.</p>
+        <button id="startButton">Start Car</button>
+        <button id="stopButton">Stop Car</button>
+        <button id="driveButton">Drive Car</button>
+    </div>
+
+    <script>
+        const car = {
+            brand: 'Toyota',
+            model: 'Camry',
+            year: 2022,
+            isRunning: false,
+
+            start: function () {
+                this.isRunning = true;
+                return `The ${this.brand} ${this.model} is now running.`;
+            },
+
+            stop: function () {
+                this.isRunning = false;
+                return `The ${this.brand} ${this.model} is now off.`;
+            },
+
+            drive: function () {
+                if (this.isRunning) {
+                    return `You are driving the ${this.brand} ${this.model}.`;
+                } else {
+                    return `You need to start the car first.`;
+                }
+            },
+
+            getStatus: function () {
+                return this.isRunning ? `Car is running.` : `Car is off.`;
+            }
+        };
+
+        function updateCarStatus() {
+            document.getElementById('carStatus').innerText = car.getStatus();
+        }
+
+        updateCarStatus();
+
+        document.getElementById('startButton').addEventListener('click', function () {
+            alert(car.start());
+            updateCarStatus();
+        });
+
+        document.getElementById('stopButton').addEventListener('click', function () {
+            alert(car.stop());
+            updateCarStatus();
+        });
+
+        document.getElementById('driveButton').addEventListener('click', function () {
+            alert(car.drive());
+        });
+    </script>
+</body>
+
+</html>

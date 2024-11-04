@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser and Document Info</title>
+    <style>
+        #info {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        #scrollInfo {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Browser and Document Information</h1>
+    <p id="info">Resize the browser or scroll the page to see the updates.</p>
+    <p id="scrollInfo"></p>
+
+    <p style="line-height: 100px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error fugiat ab voluptas,
+        atque voluptatum, eveniet
+        totam expedita a nulla, veniam alias animi reiciendis ipsa commodi corrupti quis accusamus autem? Blanditiis
+        itaque soluta consequuntur minima quo officiis voluptatum! Exercitationem ducimus expedita harum placeat fugit
+        aperiam quisquam error recusandae porro libero tempora, facere nostrum tenetur molestiae totam in dicta,
+        voluptatibus veritatis aspernatur. Velit magnam, in hic itaque quod officia neque fugiat eius commodi, voluptas
+        non dignissimos adipisci molestiae incidunt quas, deleniti magni ratione esse eaque facere? Impedit autem error
+        ab praesentium architecto reprehenderit, nisi nostrum expedita, quaerat recusandae aut vitae cumque distinctio!
+    </p>
+
+    <script>
+        function updateBrowserInfo() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            document.getElementById('info').innerText = `Browser Width: ${width}px, Browser Height: ${height}px`;
+        }
+
+        function updateScrollInfo() {
+            const scrollX = window.scrollX;
+            const scrollY = window.scrollY;
+
+            document.getElementById('scrollInfo').innerText = `Scroll Position - X: ${scrollX}px, Y: ${scrollY}px`;
+        }
+
+        updateBrowserInfo();
+        updateScrollInfo();
+
+        window.addEventListener('resize', updateBrowserInfo);
+        window.addEventListener('scroll', updateScrollInfo);
+    </script>
+</body>
+
+</html>

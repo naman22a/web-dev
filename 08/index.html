@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+    <style>
+        .table-container {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        input,
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table-container">
+        <h1>Multiplication Table</h1>
+        <input type="number" id="numberInput" placeholder="Enter a number" />
+        <button id="generateButton">Generate Table</button>
+
+        <h2>Results:</h2>
+        <ul id="multiplicationTable"></ul>
+    </div>
+
+    <script>
+        function generateMultiplicationTable(number) {
+            const table = [];
+            for (let i = 1; i <= 10; i++) {
+                table.push(`${number} x ${i} = ${number * i}`);
+            }
+            return table;
+        }
+
+        function displayTable(table) {
+            const tableElement = document.getElementById('multiplicationTable');
+            tableElement.innerHTML = ''; // Clear previous results
+            table.forEach(entry => {
+                const listItem = document.createElement('li');
+                listItem.innerText = entry;
+                tableElement.appendChild(listItem);
+            });
+        }
+
+        document.getElementById('generateButton').addEventListener('click', function () {
+            const number = parseInt(document.getElementById('numberInput').value, 10);
+            if (!isNaN(number)) {
+                const multiplicationTable = generateMultiplicationTable(number);
+                displayTable(multiplicationTable);
+            } else {
+                alert('Please enter a valid number.');
+            }
+        });
+    </script>
+</body>
+
+</html>
